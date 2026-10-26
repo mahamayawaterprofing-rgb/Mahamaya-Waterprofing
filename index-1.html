@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mahamaya Waterproofing | बुकिंग और संपर्क</title>
+<meta name="description" content="Mahamaya Waterproofing, Ambikapur, Chhattisgarh — छत की लीकेज और वाटरप्रूफिंग सेवाएँ।">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f0f9ff;color:#172033;line-height:1.6}
+header{background:linear-gradient(135deg,#082f49,#0369a1);color:#fff;text-align:center;padding:28px 16px}
+header h1{margin:0;font-size:clamp(28px,6vw,42px)}header p{margin:6px 0 0}
+nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:12px;background:white;position:sticky;top:0;border-bottom:1px solid #dbeafe}
+nav a{color:#075985;font-weight:bold;text-decoration:none}
+main{max-width:780px;margin:22px auto;padding:0 12px}
+.card{background:white;border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 4px 16px #0001}
+h2{color:#075985;margin-top:0}.service{padding:12px;background:#f8fcff;border:1px solid #d5e7f2;border-radius:8px;margin:8px 0}
+label{display:block;font-weight:bold;margin:12px 0 5px}input,select,textarea{width:100%;padding:12px;font:inherit;border:1px solid #b8c8d3;border-radius:8px;background:#fff}
+textarea{min-height:80px}button,.button{display:inline-block;width:100%;padding:14px;margin-top:18px;background:#16a34a;color:white;border:0;border-radius:9px;font-size:17px;font-weight:bold;text-align:center;text-decoration:none}
+.button.blue{background:#075985}.small{font-size:13px;color:#526579}
+</style>
+</head>
+<body>
+<header>
+<h1>Mahamaya Waterproofing</h1>
+<p>छत की लीकेज • सीलन • वाटरप्रूफिंग</p>
+<p>Ambikapur, Chhattisgarh</p>
+</header>
+<nav><a href="#services">सेवाएँ</a><a href="#booking">बुकिंग / शिकायत</a><a href="#contact">संपर्क</a></nav>
+<main>
+<section class="card" id="services">
+<h2>हमारी सेवाएँ</h2>
+<div class="service"><strong>छत की लीकेज</strong><br>छत से पानी टपकने की समस्या का समाधान</div>
+<div class="service"><strong>वाटरप्रूफिंग</strong><br>छत और टेरेस की वाटरप्रूफिंग</div>
+<div class="service"><strong>दीवार की सीलन</strong><br>दीवारों की नमी और सीलन की समस्या</div>
+<div class="service"><strong>टंकी की लीकेज</strong><br>पानी की टंकी से जुड़ी लीकेज की शिकायत</div>
+</section>
+
+<section class="card" id="booking">
+<h2>बुकिंग / शिकायत दर्ज करें</h2>
+<p>जानकारी भरें। WhatsApp खुलेगा और आपके मैसेज में बुकिंग की जानकारी तैयार रहेगी। WhatsApp में Send भी दबाएँ।</p>
+<form id="bookingForm">
+<label for="customerName">आपका नाम *</label>
+<input id="customerName" required placeholder="अपना नाम लिखें">
+<label for="customerPhone">आपका मोबाइल नंबर *</label>
+<input id="customerPhone" type="tel" required inputmode="tel" placeholder="मोबाइल नंबर लिखें">
+<label for="job">किस काम के लिए बुकिंग है? *</label>
+<select id="job" required>
+<option value="">काम चुनें</option><option>छत की लीकेज</option><option>वाटरप्रूफिंग</option><option>दीवार की सीलन</option><option>पानी की टंकी में लीकेज</option><option>अन्य समस्या / शिकायत</option>
+</select>
+<label for="address">काम की जगह / पता *</label>
+<textarea id="address" required placeholder="मोहल्ला, शहर और पूरा पता"></textarea>
+<label for="date">पसंदीदा तारीख (वैकल्पिक)</label>
+<input id="date" type="date">
+<label for="details">समस्या की जानकारी (वैकल्पिक)</label>
+<textarea id="details" placeholder="समस्या का विवरण लिखें"></textarea>
+<button type="submit">WhatsApp पर बुकिंग भेजें</button>
+<p class="small">WhatsApp खुलने पर संदेश की जाँच करें और Send दबाएँ।</p>
+</form>
+</section>
+
+<section class="card" id="contact">
+<h2>संपर्क करें</h2>
+<p><strong>नाम:</strong> Mahamaya Waterproofing</p>
+<p><strong>मोबाइल:</strong> <a href="tel:8122689473">8122689473</a></p>
+<p><strong>WhatsApp:</strong> 8122689473</p>
+<p><strong>पता:</strong> Trikon Chowk, Bhati Road, Ambikapur, Chhattisgarh 497001</p>
+<a class="button" href="https://wa.me/918122689473" target="_blank" rel="noopener">WhatsApp पर संपर्क करें</a>
+<a class="button blue" href="https://www.google.com/maps/search/?api=1&query=Trikon+Chowk%2C+Bhati+Road%2C+Ambikapur%2C+Chhattisgarh+497001" target="_blank" rel="noopener">Google Maps पर पता देखें</a>
+</section>
+</main>
+<script>
+const BUSINESS_WHATSAPP = "918122689473";
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const get = id => document.getElementById(id).value.trim() || "नहीं बताया";
+  const message = [
+    "नई बुकिंग / शिकायत - Mahamaya Waterproofing",
+    "ग्राहक का नाम: " + get("customerName"),
+    "ग्राहक का मोबाइल: " + get("customerPhone"),
+    "काम: " + get("job"),
+    "काम का पता: " + get("address"),
+    "पसंदीदा तारीख: " + get("date"),
+    "समस्या का विवरण: " + get("details")
+  ].join("\n");
+  window.location.href = "https://wa.me/" + BUSINESS_WHATSAPP + "?text=" + encodeURIComponent(message);
+});
+</script>
+</body>
+</html>
