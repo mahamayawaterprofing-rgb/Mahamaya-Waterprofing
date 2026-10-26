@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>महमाया वाटरप्रूफिंग | बुकिंग और लीड मैनेजर</title>
+<style>
+:root{--navy:#10253f;--blue:#1769aa;--cyan:#20b8c7;--bg:#f3f7fb;--ink:#15263b;--muted:#617286;--line:#dce5ee;--white:#fff;--green:#12805c;--orange:#b96910}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Devanagari",Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.top{background:linear-gradient(120deg,#10253f,#1769aa);color:white;padding:25px 18px}.wrap{max-width:1100px;margin:auto}.brandrow{display:flex;align-items:center;gap:14px}.logo{width:52px;height:52px;border-radius:15px;background:#fff;color:var(--blue);display:grid;place-items:center;font-size:26px;font-weight:900}.top h1{font-size:clamp(22px,4vw,32px);margin:0}.top p{margin:7px 0 0;color:#d9efff}.nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.nav button{border:1px solid #ffffff55;background:#ffffff12;color:white;padding:10px 14px;border-radius:10px}.nav button.active{background:white;color:var(--navy);font-weight:700}.main{max-width:1100px;margin:22px auto;padding:0 14px 40px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 5px 20px #10253f0a;margin-bottom:16px}.panel h2{margin:0 0 8px;font-size:22px}.muted{color:var(--muted);font-size:14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}label{font-weight:650;font-size:14px}input,select,textarea{width:100%;border:1px solid #cbd8e4;border-radius:10px;padding:11px 12px;background:#fff;color:var(--ink);outline-color:var(--cyan)}textarea{min-height:95px;resize:vertical}.btn{border:0;background:var(--blue);color:white;padding:12px 16px;border-radius:10px;font-weight:750}.btn.secondary{background:#e8f2fb;color:var(--blue)}.btn.danger{background:#fff0ef;color:#a52d27}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.stat{background:#f6faff;border:1px solid var(--line);border-radius:13px;padding:15px}.stat b{font-size:28px;display:block;color:var(--blue)}.stat span{font-size:13px;color:var(--muted)}.hidden{display:none!important}.notice{padding:12px 14px;border-radius:10px;background:#fff8e9;color:#774a08;font-size:13px;margin-bottom:14px}.success{background:#eaf8f1;color:#126748}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:650px}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:top}th{background:#f6f9fc}.pill{display:inline-block;border-radius:999px;background:#e8f2fb;color:#175a90;padding:4px 8px;font-size:12px;font-weight:700}.empty{text-align:center;padding:28px;color:var(--muted)}.footer{text-align:center;color:var(--muted);font-size:12px;padding:10px}@media(max-width:650px){.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.panel{padding:15px}.top{padding:20px 14px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+ <div class="brandrow"><div class="logo">M</div><div><h1 id="brandTitle">महमाया वाटरप्रूफिंग</h1><p>छत की लीकेज • सीलन • बाथरूम और दीवार की वाटरप्रूफिंग</p></div></div>
+ <div class="nav">
+  <button class="active" data-tab="booking">ग्राहक बुकिंग फॉर्म</button>
+  <button data-tab="dashboard">मेरा डैशबोर्ड</button>
+  <button data-tab="settings">सेटिंग्स</button>
+ </div>
+</div></header>
+<main class="main">
+<section id="booking" class="tab">
+ <div class="panel"><h2>निरीक्षण / काम की बुकिंग</h2><p class="muted">ग्राहक की जानकारी भरें। समस्या और विज़िट की तारीख भी दर्ज करें।</p>
+ <div class="notice">यह शुरुआती वेबसाइट डेमो है। अभी जानकारी इसी ब्राउज़र में सेव होती है। इसे सभी ग्राहकों से ऑनलाइन प्राप्त करने के लिए होस्टिंग और साझा डेटाबेस जोड़ना होगा।</div>
+ <form id="leadForm"><div class="grid">
+  <div class="field"><label for="name">ग्राहक का नाम *</label><input id="name" required placeholder="पूरा नाम"></div>
+  <div class="field"><label for="phone">मोबाइल नंबर *</label><input id="phone" required inputmode="tel" pattern="[0-9+\-\s]{10,15}" placeholder="मोबाइल नंबर"></div>
+  <div class="field full"><label for="address">पूरा पता / एरिया *</label><input id="address" required placeholder="मकान नंबर, मोहल्ला, शहर"></div>
+  <div class="field"><label for="problem">क्या समस्या है? *</label><select id="problem" required><option value="">समस्या चुनें</option><option>छत से पानी टपकना</option><option>दीवार में सीलन</option><option>बाथरूम / टॉयलेट लीकेज</option><option>टंकी लीकेज</option><option>बेसमेंट में पानी</option><option>नई छत की वाटरप्रूफिंग</option><option>अन्य</option></select></div>
+  <div class="field"><label for="urgency">समस्या कितनी जरूरी है?</label><select id="urgency"><option>सामान्य</option><option>जल्द से जल्द</option><option>बहुत जरूरी / पानी अभी टपक रहा है</option></select></div>
+  <div class="field"><label for="date">विज़िट / बुकिंग की पसंदीदा तारीख</label><input type="date" id="date"></div>
+  <div class="field"><label for="time">पसंदीदा समय</label><select id="time"><option>कोई भी समय</option><option>सुबह 9–12 बजे</option><option>दोपहर 12–3 बजे</option><option>शाम 3–6 बजे</option></select></div>
+  <div class="field full"><label for="details">समस्या का विवरण</label><textarea id="details" placeholder="लीकेज कब से है, कितनी जगह है, बारिश में बढ़ती है या नहीं…"></textarea></div>
+  <div class="field full"><label for="source">ग्राहक हमारे बारे में कहाँ से जानें?</label><select id="source"><option>Instagram</option><option>WhatsApp</option><option>Google</option><option>रेफरेंस / जान-पहचान</option><option>बैनर / दुकान</option><option>अन्य</option></select></div>
+ </div><div class="actions"><button class="btn" type="submit">बुकिंग / लीड सेव करें</button><button class="btn secondary" type="reset">फॉर्म साफ करें</button></div></form><div id="formMsg" class="notice success hidden" role="status"></div>
+ </div>
+</section>
+<section id="dashboard" class="tab hidden">
+ <div class="panel"><h2>आपका बुकिंग और लीड डैशबोर्ड</h2><p class="muted">सेव की गई पूछताछ देखें, स्टेटस बदलें और रिकॉर्ड CSV में डाउनलोड करें।</p>
+ <div class="notice">ध्यान दें: यह डैशबोर्ड उसी डिवाइस और ब्राउज़र में सेव रिकॉर्ड दिखाता है। असली मल्टी-डिवाइस ऑनलाइन सिस्टम के लिए बैकएंड चाहिए।</div>
+ <div class="stats"><div class="stat"><b id="total">0</b><span>कुल लीड</span></div><div class="stat"><b id="newCount">0</b><span>नई पूछताछ</span></div><div class="stat"><b id="bookedCount">0</b><span>बुकिंग तय</span></div><div class="stat"><b id="doneCount">0</b><span>काम पूरा</span></div></div>
+ <div class="grid" style="margin-top:16px"><div class="field"><label for="filterStatus">स्टेटस से छाँटें</label><select id="filterStatus"><option value="सभी">सभी</option><option>नई पूछताछ</option><option>ग्राहक से बात करनी है</option><option>बुकिंग तय</option><option>काम पूरा</option><option>रद्द</option></select></div><div class="field"><label for="search">नाम / मोबाइल / समस्या खोजें</label><input id="search" placeholder="खोजें…"></div></div>
+ <div class="actions"><button class="btn secondary" id="exportBtn" type="button">CSV डाउनलोड करें</button><button class="btn danger" id="clearBtn" type="button">सभी रिकॉर्ड हटाएँ</button></div>
+ </div>
+ <div class="panel"><div class="tablewrap"><table><thead><tr><th>तारीख</th><th>ग्राहक</th><th>समस्या / विवरण</th><th>बुकिंग</th><th>स्टेटस</th><th>एक्शन</th></tr></thead><tbody id="records"></tbody></table><div id="empty" class="empty">अभी कोई लीड सेव नहीं है। ग्राहक फॉर्म से पहली बुकिंग जोड़ें।</div></div></div>
+</section>
+<section id="settings" class="tab hidden">
+ <div class="panel"><h2>दुकान की जानकारी</h2><p class="muted">यह जानकारी वेबसाइट के शीर्षक और WhatsApp संपर्क लिंक में उपयोग होगी।</p>
+ <form id="settingsForm"><div class="grid">
+ <div class="field"><label for="shopName">दुकान का नाम</label><input id="shopName" value="महमाया वाटरप्रूफिंग" required></div>
+ <div class="field"><label for="shopPhone">दुकान का WhatsApp नंबर (देश कोड सहित)</label><input id="shopPhone" inputmode="tel" placeholder="जैसे 919876543210"></div>
+ <div class="field full"><label for="shopArea">दुकान का शहर / एरिया</label><input id="shopArea" placeholder="जैसे दुर्ग, छत्तीसगढ़"></div>
+ </div><div class="actions"><button class="btn" type="submit">सेटिंग सेव करें</button></div></form>
+ <div class="notice" style="margin-top:16px">महत्वपूर्ण: इस डेमो में असली लॉगिन/पासवर्ड या सर्वर सुरक्षा नहीं है। सार्वजनिक वेबसाइट पर ग्राहक की जानकारी सुरक्षित रखने के लिए सुरक्षित बैकएंड, एडमिन लॉगिन और गोपनीयता सूचना जोड़नी चाहिए।</div>
+ </div>
+</section>
+<div class="footer">महमाया वाटरप्रूफिंग • बुकिंग और ग्राहक पूछताछ प्रबंधन</div>
+</main>
+<script>
+const KEY='mahamaya_waterproofing_leads_v1', SETTINGS='mahamaya_waterproofing_settings_v1';
+let leads=JSON.parse(localStorage.getItem(KEY)||'[]');
+let settings=JSON.parse(localStorage.getItem(SETTINGS)||'{"name":"महमाया वाटरप्रूफिंग","phone":"","area":""}');
+const $=id=>document.getElementById(id);
+function save(){localStorage.setItem(KEY,JSON.stringify(leads));render()}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){
+ $('total').textContent=leads.length;
+ $('newCount').textContent=leads.filter(x=>x.status==='नई पूछताछ').length;
+ $('bookedCount').textContent=leads.filter(x=>x.status==='बुकिंग तय').length;
+ $('doneCount').textContent=leads.filter(x=>x.status==='काम पूरा').length;
+ const status=$('filterStatus').value, q=$('search').value.toLowerCase().trim();
+ const filtered=leads.filter(x=>(status==='सभी'||x.status===status)&&[x.name,x.phone,x.problem,x.address,x.details].join(' ').toLowerCase().includes(q));
+ $('records').innerHTML=filtered.map(x=>`<tr><td>${esc(x.created)}</td><td><b>${esc(x.name)}</b><br>${esc(x.phone)}<br><span class="muted">${esc(x.address)}</span></td><td><span class="pill">${esc(x.problem)}</span><br>${esc(x.details||'विवरण नहीं दिया')}<br><small>स्रोत: ${esc(x.source)}</small></td><td>${esc(x.date||'तारीख तय नहीं')}<br>${esc(x.time)}<br><small>${esc(x.urgency)}</small></td><td><select aria-label="स्टेटस बदलें" onchange="changeStatus('${x.id}',this.value)">${['नई पूछताछ','ग्राहक से बात करनी है','बुकिंग तय','काम पूरा','रद्द'].map(s=>`<option ${s===x.status?'selected':''}>${s}</option>`).join('')}</select></td><td><button class="btn secondary" onclick="contactLead('${x.id}')">WhatsApp</button> <button class="btn danger" onclick="deleteLead('${x.id}')">हटाएँ</button></td></tr>`).join('');
+ $('empty').classList.toggle('hidden',filtered.length>0);
+}
+window.changeStatus=(id,status)=>{leads=leads.map(x=>x.id===id?{...x,status}:x);save()};
+window.deleteLead=id=>{if(confirm('क्या यह रिकॉर्ड हटाना चाहते हैं?')){leads=leads.filter(x=>x.id!==id);save()}};
+window.contactLead=id=>{const x=leads.find(y=>y.id===id);if(!x)return;const phone=(x.phone||'').replace(/\D/g,'');const msg=`नमस्ते ${x.name}, महमाया वाटरप्रूफिंग से संपर्क कर रहे हैं। आपकी समस्या: ${x.problem}. बुकिंग तारीख: ${x.date||'अभी तय नहीं'}।`;const shop=(settings.phone||'').replace(/\D/g,'');const target=shop?'https://wa.me/'+shop+'?text='+encodeURIComponent(msg):'https://wa.me/'+phone+'?text='+encodeURIComponent(msg);window.open(target,'_blank')};
+$('leadForm').addEventListener('submit',e=>{e.preventDefault();const x={id:Date.now().toString(),created:new Date().toLocaleDateString('hi-IN'),name:$('name').value.trim(),phone:$('phone').value.trim(),address:$('address').value.trim(),problem:$('problem').value,urgency:$('urgency').value,date:$('date').value,time:$('time').value,details:$('details').value.trim(),source:$('source').value,status:'नई पूछताछ'};leads.unshift(x);save();$('formMsg').textContent='जानकारी इस ब्राउज़र में सेव हो गई है। डैशबोर्ड टैब में रिकॉर्ड देखें।';$('formMsg').classList.remove('hidden');e.target.reset();});
+$('filterStatus').addEventListener('change',render);$('search').addEventListener('input',render);
+$('exportBtn').addEventListener('click',()=>{if(!leads.length){alert('डाउनलोड करने के लिए कोई रिकॉर्ड नहीं है।');return}const cols=['created','name','phone','address','problem','urgency','date','time','details','source','status'];const csv=[cols.join(','),...leads.map(x=>cols.map(k=>'"'+String(x[k]??'').replace(/"/g,'""')+'"').join(','))].join('\r\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mahamaya-leads.csv';a.click();URL.revokeObjectURL(a.href)});
+$('clearBtn').addEventListener('click',()=>{if(confirm('सभी बुकिंग और लीड स्थायी रूप से इस ब्राउज़र से हट जाएँगी। जारी रखें?')){leads=[];save()}});
+$('settingsForm').addEventListener('submit',e=>{e.preventDefault();settings={name:$('shopName').value.trim(),phone:$('shopPhone').value.trim(),area:$('shopArea').value.trim()};localStorage.setItem(SETTINGS,JSON.stringify(settings));$('brandTitle').textContent=settings.name||'महमाया वाटरप्रूफिंग';alert('सेटिंग सेव हो गई।')});
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('hidden',x.id!==b.dataset.tab));if(b.dataset.tab==='dashboard')render()}));
+$('shopName').value=settings.name||'महमाया वाटरप्रूफिंग';$('shopPhone').value=settings.phone||'';$('shopArea').value=settings.area||'';$('brandTitle').textContent=settings.name||'महमाया वाटरप्रूफिंग';render();
+</script>
+</body></html>
