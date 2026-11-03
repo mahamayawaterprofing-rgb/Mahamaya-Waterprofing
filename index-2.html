@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>महामाया वाटरप्रूफिंग सॉल्यूशन | अंबिकापुर</title>
+<style>
+:root{--blue:#064b86;--gold:#ffbf24;--green:#168447;--ink:#183047}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f3f6fa;color:#263746;line-height:1.55}
+header{background:linear-gradient(135deg,#06345f,#0876ae);color:white;text-align:center;padding:34px 16px}
+header h1{margin:0;font-size:clamp(25px,5vw,38px)}header p{margin:8px 0 0;color:#ffdb70;font-weight:bold}
+main{max-width:900px;margin:22px auto;padding:0 14px}.card{background:white;border-radius:14px;padding:22px;margin:0 0 18px;box-shadow:0 4px 18px #17324d12}
+h2{color:var(--blue);margin:0 0 12px;border-bottom:2px solid #e5edf5;padding-bottom:8px}
+.services{padding-left:20px}.services li{padding:5px 0}
+form{display:grid;gap:12px}label{font-weight:bold;color:#263746}input,textarea,select{width:100%;padding:12px;border:1px solid #cbd5df;border-radius:8px;font:inherit;background:white}
+textarea{min-height:95px;resize:vertical}.btn{display:inline-block;border:0;border-radius:8px;padding:13px 18px;background:var(--green);color:white;font-weight:bold;text-decoration:none;text-align:center;font-size:16px;cursor:pointer}
+.btn:disabled{opacity:.6}.note{font-size:13px;color:#607080}.status{padding:10px;border-radius:8px;display:none}.success{display:block;background:#e7f7ed;color:#126333}.error{display:block;background:#fff0ef;color:#a52a20}
+.contact a{color:var(--blue)}footer{text-align:center;background:#172635;color:#d5dce3;padding:18px;margin-top:28px}
+@media(min-width:650px){.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
+</style>
+</head>
+<body>
+<header>
+<h1>महामाया वाटरप्रूफिंग सॉल्यूशन</h1>
+<p>डॉक्टर फिक्सिट ऑथराइज्ड एप्लिकेटर & कांट्रेक्टर</p>
+</header>
+<main>
+<section class="card">
+<h2>हमारे बारे में</h2>
+<p>हम मकान, छत, बेसमेंट और दीवारों की वाटरप्रूफिंग तथा लीकेज की समस्या के समाधान में सहायता करते हैं। सही निरीक्षण और उपयुक्त वाटरप्रूफिंग सिस्टम के लिए हमसे संपर्क करें।</p>
+</section>
+<section class="card">
+<h2>हमारी प्रमुख सेवाएं</h2>
+<ul class="services">
+<li>छत की वाटरप्रूफिंग और लीकेज समाधान</li>
+<li>दीवारों की सीपेज एवं नमी का इलाज</li>
+<li>बाथरूम और पानी की टंकी वाटरप्रूफिंग</li>
+<li>बेसमेंट एवं नींव की सुरक्षा</li>
+<li>डॉक्टर फिक्सिट केमिकल एप्लीकेशन</li>
+</ul>
+</section>
+<section class="card" id="booking">
+<h2>ऑनलाइन बुकिंग / समस्या बताएं</h2>
+<p>नीचे जानकारी भरें। आपकी बुकिंग हमारे रिकॉर्ड में सेव होगी।</p>
+<form id="bookingForm">
+<div class="two">
+<div><label for="customerName">आपका नाम *</label><input id="customerName" maxlength="100" required placeholder="पूरा नाम"></div>
+<div><label for="customerPhone">मोबाइल नंबर *</label><input id="customerPhone" type="tel" inputmode="numeric" maxlength="10" minlength="10" pattern="[0-9]{10}" required placeholder="10 अंकों का मोबाइल नंबर"></div>
+</div>
+<div><label for="customerAddress">पूरा पता *</label><textarea id="customerAddress" maxlength="500" required placeholder="मकान नंबर, मोहल्ला, शहर"></textarea></div>
+<div class="two">
+<div><label for="squareFeet">क्षेत्रफल (Square Feet) *</label><input id="squareFeet" type="number" min="1" step="1" required placeholder="जैसे 1200"></div>
+<div><label for="problem">समस्या *</label><select id="problem" required><option value="">समस्या चुनें</option><option>छत की लीकेज</option><option>दीवार में सीपेज / नमी</option><option>बाथरूम लीकेज</option><option>पानी की टंकी</option><option>बेसमेंट / नींव</option><option>अन्य समस्या</option></select></div>
+</div>
+<div><label for="details">समस्या की अतिरिक्त जानकारी</label><textarea id="details" maxlength="1000" placeholder="लीकेज कब से है? कोई अन्य जानकारी..."></textarea></div>
+<button class="btn" id="submitBtn" type="submit">बुकिंग भेजें</button>
+<div id="formStatus" class="status" role="status"></div>
+<p class="note">* जरूरी जानकारी। मोबाइल नंबर ठीक 10 अंकों का होना चाहिए।</p>
+</form>
+</section>
+<section class="card contact">
+<h2>संपर्क करें</h2>
+<p><strong>प्रोपराइटर:</strong> राजू दास</p>
+<p><strong>मोबाइल:</strong> <a href="tel:8122689473">8122689473</a></p>
+<p><strong>पता:</strong> त्रिकोण चौक, भाटी रोड, अंबिकापुर, छत्तीसगढ़ 497001 (मिशन अस्पताल के पास)</p>
+<a class="btn" href="tel:8122689473">📞 अभी कॉल करें</a>
+<a class="btn" style="background:#168b55;margin-left:6px" href="https://wa.me/918122689473" target="_blank" rel="noopener">WhatsApp</a>
+</section>
+</main>
+<footer>© 2026 महामाया वाटरप्रूफिंग सॉल्यूशन. सर्वाधिकार सुरक्षित।</footer>
+
+<!-- Supabase का public anon/publishable key नीचे डालें। Secret/service_role key कभी वेबसाइट में न डालें। -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = "https://qseozrxqdqtlzoyowoko.supabase.co";
+const SUPABASE_ANON_KEY = "YAHAN_APNA_SUPABASE_ANON_PUBLIC_KEY_DALEIN";
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const form = document.getElementById("bookingForm");
+const statusBox = document.getElementById("formStatus");
+const submitBtn = document.getElementById("submitBtn");
+const phoneInput = document.getElementById("customerPhone");
+phoneInput.addEventListener("input", () => {
+  phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+});
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  statusBox.className = "status";
+  statusBox.textContent = "";
+  const mobile = phoneInput.value.trim();
+  if (!/^[0-9]{10}$/.test(mobile)) {
+    statusBox.textContent = "कृपया 10 अंकों का सही मोबाइल नंबर डालें।";
+    statusBox.className = "status error";
+    return;
+  }
+  if (SUPABASE_ANON_KEY.includes("YAHAN_APNA")) {
+    statusBox.textContent = "वेबसाइट में Supabase का anon/public key अभी डालना बाकी है।";
+    statusBox.className = "status error";
+    return;
+  }
+  submitBtn.disabled = true;
+  submitBtn.textContent = "बुकिंग सेव हो रही है...";
+  const record = {
+    customer_name: document.getElementById("customerName").value.trim(),
+    mobile,
+    address: document.getElementById("customerAddress").value.trim(),
+    problem: document.getElementById("problem").value +
+      (document.getElementById("details").value.trim() ? " — " + document.getElementById("details").value.trim() : ""),
+    square_feet: Number(document.getElementById("squareFeet").value),
+    booking_status: "Pending"
+  };
+  try {
+    const { error } = await db.from("bookings").insert([record]);
+    if (error) throw error;
+    statusBox.textContent = "धन्यवाद! आपकी बुकिंग सफलतापूर्वक सेव हो गई है। हम आपसे संपर्क करेंगे।";
+    statusBox.className = "status success";
+    form.reset();
+  } catch (error) {
+    statusBox.textContent = "बुकिंग सेव नहीं हुई: " + (error.message || "कृपया दोबारा कोशिश करें।");
+    statusBox.className = "status error";
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "बुकिंग भेजें";
+  }
+});
+</script>
+</body>
+</html>
