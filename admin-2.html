@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahamaya Waterproofing | Admin</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#1f2937}
+header{background:#063e70;color:#fff;padding:18px;text-align:center}header h1{margin:0;font-size:23px}
+main{max-width:1050px;margin:20px auto;padding:0 12px}.card{background:#fff;border-radius:12px;padding:18px;margin-bottom:16px;box-shadow:0 3px 14px #102a4310}
+h2{margin:0 0 14px;color:#064b86;font-size:20px}
+input,select{padding:11px;border:1px solid #cbd5e1;border-radius:7px;width:100%;font-size:15px;margin:5px 0 12px}
+button{border:0;border-radius:7px;padding:11px 15px;background:#0873b9;color:white;font-weight:bold;font-size:15px;cursor:pointer}
+button:disabled{opacity:.6}.secondary{background:#64748b}.danger{background:#b42318}
+.hidden{display:none}.msg{padding:10px;border-radius:7px;margin-top:10px;white-space:pre-wrap}.err{background:#fff0ef;color:#a3261d}.ok{background:#e8f7ed;color:#176338}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:#edf5fc;padding:14px;border-radius:9px;text-align:center}.stat b{display:block;font-size:25px;color:#064b86}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:750px}th,td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:left;font-size:14px;vertical-align:top}th{background:#edf4fa}
+.small{font-size:13px;color:#64748b}.booking-status{min-width:130px}
+.chart{display:flex;align-items:flex-end;gap:8px;min-height:180px;padding:12px 4px 0;border-bottom:1px solid #cbd5e1;overflow-x:auto}
+.bar-col{min-width:45px;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;height:160px}
+.bar{background:#1683c5;border-radius:5px 5px 0 0;min-height:2px;width:28px;margin:0 auto}
+.bar-label{font-size:11px;color:#526170;margin-top:5px}.bar-count{font-size:11px}
+@media(max-width:560px){.stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:span 2}}
+</style>
+</head>
+<body>
+<header><h1>महामाया वाटरप्रूफिंग – Admin Dashboard</h1></header>
+<main>
+<section class="card" id="loginCard">
+<h2>Admin Login</h2>
+<label>Admin Email</label><input id="email" type="email" autocomplete="username" placeholder="Admin email">
+<label>Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Password">
+<button id="loginBtn">Login करें</button>
+<div id="loginMsg" class="msg hidden"></div>
+<p class="small">Admin login Supabase Authentication से verify होगा।</p>
+</section>
+<section id="dashboard" class="hidden">
+<div class="card">
+<div style="display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap">
+<h2 style="margin:0">Booking Dashboard</h2><div><button class="secondary" id="refreshBtn">Refresh</button> <button class="danger" id="logoutBtn">Logout</button></div>
+</div>
+<p class="small" id="adminIdentity"></p>
+<div id="dashMsg" class="msg hidden"></div>
+</div>
+<div class="card">
+<h2>बुकिंग का सारांश</h2>
+<div class="stats">
+<div class="stat"><b id="totalCount">0</b><span>कुल बुकिंग</span></div>
+<div class="stat"><b id="pendingCount">0</b><span>Pending</span></div>
+<div class="stat"><b id="doneCount">0</b><span>Completed</span></div>
+</div>
+</div>
+<div class="card"><h2>तारीख के अनुसार बुकिंग</h2><div id="chart" class="chart"></div><p class="small">यह चार्ट हाल की 7 तारीखों की बुकिंग दिखाता है।</p></div>
+<div class="card">
+<h2>सभी ग्राहक बुकिंग</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>तारीख</th><th>नाम</th><th>मोबाइल</th><th>पता</th><th>समस्या</th><th>Square Feet</th><th>स्टेटस बदलें</th></tr></thead>
+<tbody id="bookingRows"><tr><td colspan="7">डेटा लोड हो रहा है...</td></tr></tbody>
+</table></div>
+</div>
+</section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = "https://qseozrxqdqtlzoyowoko.supabase.co";
+const SUPABASE_ANON_KEY = "YAHAN_APNA_SUPABASE_ANON_PUBLIC_KEY_DALEIN";
+const ADMIN_EMAIL = "mahamayawaterproofing@gmail.com";
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const $ = id => document.getElementById(id);
+function showMsg(id, text, good=false){const el=$(id);el.textContent=text;el.className="msg "+(good?"ok":"err");el.classList.remove("hidden")}
+function hideMsg(id){$(id).classList.add("hidden")}
+function showDashboard(user){$("loginCard").classList.add("hidden");$("dashboard").classList.remove("hidden");$("adminIdentity").textContent="लॉगिन: "+user.email}
+async function loadBookings(){
+ hideMsg("dashMsg");
+ $("bookingRows").innerHTML='<tr><td colspan="7">डेटा लोड हो रहा है...</td></tr>';
+ const {data,error}=await db.from("bookings").select("id,customer_name,mobile,address,problem,square_feet,booking_status,created_at").order("created_at",{ascending:false});
+ if(error){$("bookingRows").innerHTML="";showMsg("dashMsg","बुकिंग लोड नहीं हुई: "+error.message+"\nSupabase में bookings टेबल के कॉलम और Admin SELECT policy जाँचें।");return}
+ const rows=data||[];
+ $("totalCount").textContent=rows.length;
+ $("pendingCount").textContent=rows.filter(x=>(x.booking_status||"Pending")==="Pending").length;
+ $("doneCount").textContent=rows.filter(x=>x.booking_status==="Completed").length;
+ renderChart(rows);
+ if(!rows.length){$("bookingRows").innerHTML='<tr><td colspan="7">अभी कोई बुकिंग नहीं मिली।</td></tr>';return}
+ $("bookingRows").innerHTML="";
+ rows.forEach(row=>{
+  const tr=document.createElement("tr");
+  const date=row.created_at?new Date(row.created_at).toLocaleString("hi-IN"):"—";
+  [date,row.customer_name,row.mobile,row.address,row.problem,row.square_feet].forEach(value=>{
+   const td=document.createElement("td");td.textContent=value??"—";tr.appendChild(td);
+  });
+  const td=document.createElement("td");
+  const select=document.createElement("select");select.className="booking-status";
+  ["Pending","Confirmed","Completed"].forEach(s=>{const op=document.createElement("option");op.value=s;op.textContent=s;if((row.booking_status||"Pending")===s)op.selected=true;select.appendChild(op)});
+  select.addEventListener("change",async()=>{
+   select.disabled=true;
+   const {error:updateError}=await db.from("bookings").update({booking_status:select.value}).eq("id",row.id);
+   select.disabled=false;
+   if(updateError){showMsg("dashMsg","स्टेटस अपडेट नहीं हुआ: "+updateError.message);select.value=row.booking_status||"Pending"}
+   else{row.booking_status=select.value;showMsg("dashMsg","बुकिंग स्टेटस अपडेट हो गया।",true);$("pendingCount").textContent=rows.filter(x=>(x.booking_status||"Pending")==="Pending").length;$("doneCount").textContent=rows.filter(x=>x.booking_status==="Completed").length}
+  });
+  td.appendChild(select);tr.appendChild(td);$("bookingRows").appendChild(tr);
+ });
+}
+function renderChart(rows){
+ const counts={};const now=new Date();
+ for(let i=6;i>=0;i--){const d=new Date(now);d.setDate(now.getDate()-i);const key=d.toLocaleDateString("en-CA");counts[key]=0}
+ rows.forEach(r=>{if(r.created_at){const key=new Date(r.created_at).toLocaleDateString("en-CA");if(key in counts)counts[key]++}});
+ const max=Math.max(1,...Object.values(counts));
+ $("chart").innerHTML="";
+ Object.entries(counts).forEach(([date,count])=>{
+  const col=document.createElement("div");col.className="bar-col";
+  const num=document.createElement("div");num.className="bar-count";num.textContent=count;
+  const bar=document.createElement("div");bar.className="bar";bar.style.height=(count/max*115)+"px";
+  const label=document.createElement("div");label.className="bar-label";label.textContent=date.slice(5);
+  col.append(num,bar,label);$("chart").appendChild(col);
+ });
+}
+$("loginBtn").addEventListener("click",async()=>{
+ hideMsg("loginMsg");
+ if(SUPABASE_ANON_KEY.includes("YAHAN_APNA")){showMsg("loginMsg","पहले Supabase anon/public key को इस फाइल में डालें।");return}
+ $("loginBtn").disabled=true;
+ const {data,error}=await db.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});
+ $("loginBtn").disabled=false;
+ if(error){showMsg("loginMsg","Login नहीं हुआ: "+error.message);return}
+ if(data.user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){await db.auth.signOut();showMsg("loginMsg","इस ईमेल को Admin की अनुमति नहीं है।");return}
+ showDashboard(data.user);await loadBookings();
+});
+$("refreshBtn").addEventListener("click",loadBookings);
+$("logoutBtn").addEventListener("click",async()=>{await db.auth.signOut();$("dashboard").classList.add("hidden");$("loginCard").classList.remove("hidden");$("password").value=""});
+(async()=>{if(!SUPABASE_ANON_KEY.includes("YAHAN_APNA")){const {data}=await db.auth.getSession();if(data.session){if(data.session.user.email.toLowerCase()===ADMIN_EMAIL.toLowerCase()){showDashboard(data.session.user);await loadBookings()}else await db.auth.signOut()}}})();
+</script>
+</body>
+</html>
