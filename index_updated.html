@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mahamaya Waterproofing | बुकिंग और Admin</title>
+<meta name="description" content="Mahamaya Waterproofing, Ambikapur — छत की लीकेज और वाटरप्रूफिंग सेवाएँ।">
+<style>
+:root{--blue:#075985;--deep:#082f49;--green:#16a34a;--pale:#f0f9ff}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--pale);color:#172033;line-height:1.6}header{background:linear-gradient(135deg,var(--deep),#0369a1);color:white;text-align:center;padding:28px 16px}header h1{margin:0;font-size:clamp(27px,6vw,42px)}header p{margin:6px 0 0}nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:12px;background:#fff;position:sticky;top:0;border-bottom:1px solid #dbeafe;z-index:2}nav a{color:var(--blue);font-weight:bold;text-decoration:none}main{max-width:850px;margin:22px auto;padding:0 12px}.card{background:#fff;border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 4px 16px #0001}h2{color:var(--blue);margin-top:0}.service{padding:12px;background:#f8fcff;border:1px solid #d5e7f2;border-radius:8px;margin:8px 0}label{display:block;font-weight:bold;margin:12px 0 5px}input,select,textarea{width:100%;padding:12px;font:inherit;border:1px solid #b8c8d3;border-radius:8px;background:white}textarea{min-height:80px}button,.button{display:inline-block;width:100%;padding:13px;margin-top:15px;background:var(--green);color:white;border:0;border-radius:9px;font-size:16px;font-weight:bold;text-align:center;text-decoration:none;cursor:pointer}button.blue,.button.blue{background:var(--blue)}button.gray{background:#475569}.small{font-size:13px;color:#526579}.notice{padding:10px;border-radius:8px;background:#eff6ff;color:#1e40af;margin:10px 0}.hidden{display:none}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px;border-bottom:1px solid #dbeafe;text-align:left;white-space:nowrap}th{background:#eff6ff}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.stat{background:#eff6ff;padding:14px;border-radius:10px}.stat strong{display:block;font-size:25px;color:var(--deep)}footer{text-align:center;padding:18px;background:#041e2d;color:#cbd5e1}
+</style>
+</head>
+<body>
+<header><h1>Mahamaya Waterproofing</h1><p>छत की लीकेज • सीलन • वाटरप्रूफिंग</p><p>Trikon Chowk, Bhati Road, Ambikapur, Chhattisgarh</p></header>
+<nav><a href="#services">सेवाएँ</a><a href="#booking">बुकिंग</a><a href="#contact">संपर्क</a><a href="#admin">Admin Login</a></nav>
+<main>
+<section class="card" id="services"><h2>हमारी सेवाएँ</h2><div class="service"><b>छत की लीकेज</b><br>छत से पानी टपकने की समस्या का समाधान</div><div class="service"><b>वाटरप्रूफिंग</b><br>छत और टेरेस की वाटरप्रूफिंग</div><div class="service"><b>दीवार की सीलन</b><br>दीवारों की नमी और सीलन</div><div class="service"><b>टंकी की लीकेज</b><br>पानी की टंकी से जुड़ी समस्या</div></section>
+<section class="card" id="booking"><h2>बुकिंग / शिकायत दर्ज करें</h2><p>फॉर्म भरकर भेजें। बुकिंग वेबसाइट के रिकॉर्ड में सेव होगी और WhatsApp भी खुलेगा।</p><form id="bookingForm">
+<label for="customerName">आपका नाम *</label><input id="customerName" required maxlength="100" placeholder="अपना नाम लिखें">
+<label for="customerPhone">मोबाइल नंबर *</label><input id="customerPhone" type="tel" required inputmode="tel" pattern="[0-9+() -]{10,18}" placeholder="मोबाइल नंबर लिखें">
+<label for="job">किस काम के लिए बुकिंग है? *</label><select id="job" required><option value="">काम चुनें</option><option>छत की लीकेज</option><option>वाटरप्रूफिंग</option><option>दीवार की सीलन</option><option>पानी की टंकी में लीकेज</option><option>अन्य समस्या / शिकायत</option></select>
+<label for="address">काम की जगह / पूरा पता *</label><textarea id="address" required maxlength="500" placeholder="मोहल्ला, शहर और पूरा पता"></textarea>
+<label for="squareFeet">काम का क्षेत्रफल (Square Feet) *</label><input id="squareFeet" type="number" min="1" step="1" required placeholder="जैसे 500">
+<label for="date">पसंदीदा तारीख (वैकल्पिक)</label><input id="date" type="date">
+<label for="details">समस्या की जानकारी (वैकल्पिक)</label><textarea id="details" maxlength="1000" placeholder="समस्या का विवरण लिखें"></textarea>
+<button id="bookingSubmit" type="submit">बुकिंग सेव करें और WhatsApp भेजें</button><p id="bookingMessage" class="small" role="status"></p></form></section>
+<section class="card" id="contact"><h2>संपर्क करें</h2><p><b>मोबाइल / WhatsApp:</b> <a href="tel:8122689473">8122689473</a></p><p><b>पता:</b> Trikon Chowk, Bhati Road, Ambikapur, Chhattisgarh 497001</p><a class="button" href="https://wa.me/918122689473" target="_blank" rel="noopener">WhatsApp पर संपर्क करें</a><a class="button blue" href="https://www.google.com/maps/search/?api=1&query=Trikon+Chowk%2C+Bhati+Road%2C+Ambikapur%2C+Chhattisgarh+497001" target="_blank" rel="noopener">Google Maps पर पता देखें</a></section>
+<section class="card" id="admin"><h2>Admin Dashboard</h2><div id="loginPanel"><p>केवल अधिकृत Admin लॉगिन करें।</p><label for="adminEmail">Admin Email</label><input id="adminEmail" type="email" value="mahamayawaterproofing@gmail.com" autocomplete="username"><label for="adminPassword">Password</label><input id="adminPassword" type="password" autocomplete="current-password" placeholder="अपना Supabase password लिखें"><button class="blue" id="loginButton" type="button">Admin Login</button><p id="loginMessage" class="small" role="status"></p></div><div id="dashboard" class="hidden"><div class="stats"><div class="stat">कुल बुकिंग<strong id="totalBookings">0</strong></div><div class="stat">आज की बुकिंग<strong id="todayBookings">0</strong></div></div><button class="blue" id="refreshButton" type="button">बुकिंग Refresh करें</button><button class="gray" id="logoutButton" type="button">Logout</button><h3>तारीख के अनुसार बुकिंग</h3><div id="dateCounts" class="small">अभी कोई रिकॉर्ड नहीं।</div><h3>सभी बुकिंग</h3><div class="tablewrap"><table><thead><tr><th>तारीख</th><th>नाम</th><th>मोबाइल</th><th>काम</th><th>पता</th><th>Sq Ft</th><th>Status</th></tr></thead><tbody id="bookingRows"></tbody></table></div><p id="dashboardMessage" class="small" role="status"></p></div></section>
+</main><footer>© <span id="year"></span> Mahamaya Waterproofing</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// Supabase Project URL पहले से भरा है। नीचे केवल anon/publishable key डालें। Secret/service_role key कभी न डालें।
+const SUPABASE_URL = 'https://jxfskofzuamfbnxnauun.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_03cqP7WGcotkGmyjQxoYsA_LIQVZqi3';
+const BUSINESS_WHATSAPP = '918122689473';
+const $ = id => document.getElementById(id);
+$('year').textContent = new Date().getFullYear();
+let supabaseClient = null;
+function setupClient(){
+  if(!window.supabase){throw new Error('Supabase library लोड नहीं हुई। इंटरनेट जाँचें।');}
+  if(!SUPABASE_ANON_KEY || SUPABASE_ANON_KEY.includes('PASTE_YOUR')){throw new Error('पहले index.html में अपनी Supabase anon/publishable key डालें।');}
+  if(!supabaseClient){supabaseClient = window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);}
+  return supabaseClient;
+}
+$('bookingForm').addEventListener('submit', async e=>{
+ e.preventDefault(); const btn=$('bookingSubmit'), msg=$('bookingMessage'); btn.disabled=true;btn.textContent='बुकिंग सेव हो रही है...';msg.textContent='';
+ try{
+  const client=setupClient();
+  const name=$('customerName').value.trim(), mobile=$('customerPhone').value.trim(), job=$('job').value, address=$('address').value.trim(), sqft=Number($('squareFeet').value), date=$('date').value, details=$('details').value.trim();
+  const problem = job + (details ? ' — '+details : '') + (date ? ' | पसंदीदा तारीख: '+date : '');
+  const {error}=await client.from('bookings').insert([{customer_name:name,mobile,address,problem,square_feet:sqft,booking_status:'नई बुकिंग'}]);
+  if(error) throw error;
+  msg.textContent='बुकिंग Supabase में सेव हो गई है। अब WhatsApp खुलेगा; वहाँ Send दबाएँ।';
+  const message=['नई बुकिंग - Mahamaya Waterproofing','ग्राहक का नाम: '+name,'मोबाइल: '+mobile,'काम: '+job,'पता: '+address,'क्षेत्रफल: '+sqft+' Square Feet','पसंदीदा तारीख: '+(date||'नहीं बताया'),'समस्या: '+(details||'नहीं बताया')].join('\n');
+  window.open('https://wa.me/'+BUSINESS_WHATSAPP+'?text='+encodeURIComponent(message),'_blank'); $('bookingForm').reset();
+ }catch(err){msg.textContent='बुकिंग सेव नहीं हुई: '+(err.message||'कृपया Supabase URL/Key और bookings policy जाँचें।');}
+ finally{btn.disabled=false;btn.textContent='बुकिंग सेव करें और WhatsApp भेजें';}
+});
+$('loginButton').addEventListener('click',async()=>{const msg=$('loginMessage');msg.textContent='लॉगिन हो रहा है...';try{const c=setupClient();const {data,error}=await c.auth.signInWithPassword({email:$('adminEmail').value.trim(),password:$('adminPassword').value});if(error)throw error;$('loginPanel').classList.add('hidden');$('dashboard').classList.remove('hidden');$('adminPassword').value='';await loadBookings();}catch(e){msg.textContent='लॉगिन नहीं हुआ: '+(e.message||'ईमेल, पासवर्ड या Supabase key जाँचें।');}});
+async function loadBookings(){const msg=$('dashboardMessage');msg.textContent='बुकिंग लोड हो रही हैं...';try{const c=setupClient();const {data,error}=await c.from('bookings').select('id,customer_name,mobile,address,problem,square_feet,booking_status,created_at').order('created_at',{ascending:false});if(error)throw error;const rows=data||[];$('totalBookings').textContent=rows.length;const today=new Date().toLocaleDateString('en-CA');$('todayBookings').textContent=rows.filter(r=>new Date(r.created_at).toLocaleDateString('en-CA')===today).length;$('bookingRows').innerHTML=rows.map(r=>{const d=r.created_at?new Date(r.created_at).toLocaleString('en-IN'):'—';return `<tr><td>${escapeHtml(d)}</td><td>${escapeHtml(r.customer_name||'')}</td><td>${escapeHtml(r.mobile||'')}</td><td>${escapeHtml(r.problem||'')}</td><td>${escapeHtml(r.address||'')}</td><td>${escapeHtml(String(r.square_feet??''))}</td><td>${escapeHtml(r.booking_status||'')}</td></tr>`;}).join('');const counts={};rows.forEach(r=>{const day=r.created_at?new Date(r.created_at).toLocaleDateString('en-IN'):'तारीख नहीं';counts[day]=(counts[day]||0)+1;});$('dateCounts').innerHTML=Object.entries(counts).map(([d,n])=>`<div>${escapeHtml(d)} : <b>${n} बुकिंग</b></div>`).join('')||'अभी कोई रिकॉर्ड नहीं।';msg.textContent=rows.length?'बुकिंग लोड हो गईं।':'अभी कोई बुकिंग नहीं है।';}catch(e){msg.textContent='रिकॉर्ड नहीं दिखे: '+(e.message||'Admin SELECT RLS policy जाँचें।');}}
+function escapeHtml(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+$('refreshButton').addEventListener('click',loadBookings);$('logoutButton').addEventListener('click',async()=>{if(supabaseClient)await supabaseClient.auth.signOut();$('dashboard').classList.add('hidden');$('loginPanel').classList.remove('hidden');$('loginMessage').textContent='आप Logout हो गए हैं।';});
+</script>
+</body></html>
